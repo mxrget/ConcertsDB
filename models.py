@@ -2,58 +2,58 @@ from django.db import models
 
 
 class City(models.Model):
-    name = models.TextField('Город')
-    country = models.TextField('Страна')
+    city_name = models.CharField('city', max_length=60)
+    country = models.CharField('country', max_length=200)
 
 
 class PlaceType(models.Model):
-    name = models.TextField('Тип места')
+    place_type_name = models.CharField('place type', max_length=100)
 
 
 class Place(models.Model):
-    name = models.TextField('Название площадки')
-    long = models.TextField('Длительность мероприятия')
-    lat = models.TextField()
-    city_id = models.ForeignKey(City, on_delete=models.CASCADE)
-    address = models.TextField('Адресс')
-    type_id = models.ForeignKey(PlaceType, on_delete=models.CASCADE)
-    link = models.URLField('Ссылка на место')
+    place_name = models.CharField('place name', max_length=250)
+    long = models.FloatField('longtitude')
+    lat = models.FloatField('latitude')
+    address = models.CharField('adress', max_length=300)
+    place_link = models.URLField('url to place')
+    type_id = models.ForeignKey(PlaceType, on_delete=models.CASCADE, verbose_name='place type')
+    city_id = models.ForeignKey(City, on_delete=models.CASCADE, verbose_name='place city')
 
 
 class Genre(models.Model):
-    name = models.TextField('Жанр')
+    genre_name = models.CharField('genre', max_length=100)
 
 
-class ArtistType(models.Model):
-    name = models.TextField('Тип артиста')
+class PerformerType(models.Model):
+    performer_type_name = models.CharField('performer type', max_length=50)
 
 
-class Artist(models.Model):
-    name = models.TextField('Имя артиста')
-    genre = models.ManyToManyField(Genre)
-    artist_type_id = models.ForeignKey(ArtistType, on_delete=models.CASCADE)
+class Performer(models.Model):
+    performer_name = models.CharField('performer name', max_length=200)
+    performer_description = models.TextField('performer description')
+    performer_photo_link = models.URLField('performer photo url')
+    genre_id = models.ManyToManyField(Genre, verbose_name='genre list')
+    performer_type_id = models.ForeignKey(PerformerType, on_delete=models.CASCADE, verbose_name='performer type')
 
 
 class EventType(models.Model):
-    name = models.TextField('Тип мероприятия')
+    event_type_name = models.CharField('event type', max_length=100)
 
 
 class AgeCategory(models.Model):
-    min = models.IntegerField('Минимальный возраст')
-    write = models.TextField()
-
-
-class Price(models.Model):
-    min = models.IntegerField('Минимальная цена')
+    age = models.IntegerField('age')
 
 
 class Event(models.Model):
-    name = models.TextField('Название мероприятия')
-    date = models.DateField('Дата проведения')
-    time = models.TimeField('Время проведения')
-    place_id = models.ForeignKey(Place, on_delete=models.CASCADE)
-    artist_id = models.ManyToManyField(Artist)
-    link = models.URLField('Ссылка на мероприятие')
-    age_category_id = models.ForeignKey(AgeCategory, on_delete=models.CASCADE)
-    event_type_id = models.ForeignKey(EventType, on_delete=models.CASCADE)
-    price_id = models.ForeignKey(Price, on_delete=models.CASCADE)
+    event_name = models.CharField('event name', max_length=150)
+    event_date = models.DateField('date')
+    event_time = models.TimeField('type')
+    event_description = models.TextField('event description')
+    event_link = models.URLField('event url')
+    price_min = models.IntegerField('minimum price')
+    event_photo_link = models.URLField('event photo url')
+    age_category_id = models.ForeignKey(AgeCategory, on_delete=models.CASCADE, verbose_name='minimum age')
+    event_type_id = models.ForeignKey(EventType, on_delete=models.CASCADE, verbose_name='event type')
+    place_id = models.ForeignKey(Place, on_delete=models.CASCADE, verbose_name='place')
+    performer_id = models.ManyToManyField(Performer, verbose_name='performers')
+    
