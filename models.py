@@ -90,7 +90,7 @@ class EventType(models.Model):
 
 
 class AgeCategory(models.Model):
-    age = models.CharField('age', max_length=4)
+    age = models.IntegerField('age')
 
     def __str__(self):
         return str(self.age)
@@ -103,7 +103,7 @@ class AgeCategory(models.Model):
 class Event(models.Model):
     event_name = models.CharField('event name', max_length=150)
     event_date = models.DateField('date')
-    event_time = models.TimeField('type')
+    event_time = models.TimeField('time')
     event_description = models.TextField('event description')
     event_link = models.URLField('event url')
     price_min = models.IntegerField('minimum price')
