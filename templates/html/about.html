@@ -1,0 +1,107 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+    <head>
+        <title>Concerts DB - about</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0,
+              maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Arsen Riabukha">
+        <meta name="generator" content="Hugo 0.111.3">
+        <meta name="theme-color" content="#712cf9">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+            rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+            crossorigin="anonymous">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
+        <link rel="icon" href="{% static 'photos/db_logo.png' %}">
+
+    </head>
+    <body>
+        <main>
+
+            <div class="header_bg">
+                <div class="container header_ars" >
+                    <header class="d-flex flex-wrap justify-content-center py-3 mb-4">
+
+                        <a href="/"
+                           class="d-flex align-items-center mb-3 mb-md-0 me-md-auto
+                           link-body-emphasis text-decoration-none">
+                            <span class="fs-4">Concerts DB</span>
+                        </a>
+
+                        <ul class="nav nav-pills">
+                            <li class="nav-item">
+                                <a href="/" class="nav-link" aria-current="page">Главная</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/all-events?date-input=&age-category-input=0&event-type-input=0&event-city-input=0&genre-input=0" class="nav-link">События</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/search" class="nav-link">Поиск</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/about" class="nav-link active">О нас</a>
+                            </li>
+                        </ul>
+                    </header>
+                </div>
+            </div>
+
+            <section class="py-2 text-center container">
+                <div class="row py-lg-5">
+                </div>
+            </section>
+
+            <div class="album py-5 bg-body-tertiary">
+                <div class="container">
+
+                    <main class="px-3">
+                        <h1>О проекте</h1>
+                        <p class="lead">
+                            Мы - команда трех 10-классников из школы "Летово". На нашем ресурсе вы сможете найти
+                            информацию о различных выступлениях артистов по всей России. Например, сможете узнать где и
+                            когда проводится концерт, сколько стоят билеты, какие есть возрастные ограничения и многое
+                            другое. Данные собраны с большого количество ресурсов и захватывает артистов даже с
+                            небольшой фан базой, чем мы  принципиально отличаемся от ресурсов по типу Яндекс Афишы.
+                        </p>
+                        <p class="lead">
+                            <a type="button" class="btn btn-lg btn-outline-secondary"
+                               href="/">
+                                На главную
+                            </a>
+                        </p>
+                    </main>
+
+                </div>
+            </div>
+
+            <div class="container footer-navbar">
+                <footer class="py-3 my-4">
+
+                    <ul class="nav justify-content-center pb-3 mb-3">
+                        <li class="nav-item">
+                            <a href="/" class="nav-link px-2 text-body-secondary">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/all-events?date-input=&age-category-input=0&event-type-input=0&event-city-input=0&genre-input=0" class="nav-link px-2 text-body-secondary">События</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/search" class="nav-link px-2 text-body-secondary">Поиск</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/about" class="nav-link px-2 text-body-secondary">О нас</a>
+                        </li>
+                    </ul>
+
+                    <p class="text-center text-body-secondary">© 2023 Three Freelancers, Inc</p>
+                </footer>
+            </div>
+        </main>
+    </body>
+</html>

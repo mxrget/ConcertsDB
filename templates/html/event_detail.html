@@ -1,0 +1,201 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+    <head>
+        <title>Concerts DB - {{ event.event_name }}</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0,
+              maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description"
+              content="Главная страница Concerts DB. Здесь можно найти информацию
+              по концертам, афишам, фестевалям и любым другим мероприятиям">
+        <meta name="author" content="Arsen Riabukha">
+        <meta name="generator" content="Hugo 0.111.3">
+        <meta name="theme-color" content="#712cf9">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+            rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+            crossorigin="anonymous">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/event_detail.css' %}">
+        <link rel="icon" href="{% static 'photos/db_logo.png' %}">
+
+    </head>
+    <body>
+        <main>
+
+            <div class="header_bg">
+                <div class="container header_ars" >
+                    <header class="d-flex flex-wrap justify-content-center py-3">
+
+                        <a href="/"
+                           class="d-flex align-items-center mb-3 mb-md-0 me-md-auto
+                           link-body-emphasis text-decoration-none">
+                            <span class="fs-4">Concerts DB</span>
+                        </a>
+
+                        <ul class="nav nav-pills">
+                            <li class="nav-item">
+                                <a href="/" class="nav-link" aria-current="page">Главная</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/all-events?date-input=&age-category-input=0&event-type-input=0&event-city-input=0&genre-input=0" class="nav-link">События</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/search" class="nav-link">Поиск</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/about" class="nav-link">О нас</a>
+                            </li>
+                        </ul>
+                    </header>
+                </div>
+            </div>
+
+            <div class="text-center" style="
+                    background-image: url('{{ event.event_photo_link }}');
+                    background-size: cover;
+                    height: 400px;
+                    padding-top: 0;">
+
+                <div class="section-color">
+                    <div class="container">
+                        <div class="event-name-div">
+                            <span class="event-name">
+                                {{ event.event_name }} ({{ event.age_category_id.age }}+)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="album py-5 bg-body-tertiary">
+                <div class="container all-info">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h1>{{ event.event_type_id.event_type_name }} "{{ event.event_name }}"</h1>
+                            <p>{{ event.event_description }}</p>
+                            <span><b>Дата:</b> {{ event.event_date }}</span><br>
+                            <span><b>Время:</b> {{ event.event_time }}</span><br>
+                            <span><b>Место:</b>
+                                    <a href="{{ event.place_id.place_link }}" target="_blank">
+                                        {{ event.place_id.place_name }}</a>,
+                                    {{ event.place_id.address }},
+                                    {{ event.place_id.city_id.city_name }}
+                            </span><br>
+                            <span><b>Цена:</b> от {{ event.price_min }} рублей</span><br>
+
+                            <br><br>
+
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <a type="button"
+                                       class="btn btn-lg btn-outline-primary"
+                                       target="_blank"
+                                       href="{{ event.event_link }}">
+                                        Купить билет от {{ event.price_min }} рублей
+                                    </a>
+                                    <a type="button" class="btn btn-lg btn-outline-secondary"
+                                       href="/">
+                                        На главную
+                                    </a>
+                                </div>
+                            </div>
+                            <br><br>
+
+                        </div>
+
+                        <div class="col-lg-2">
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div>
+                                <h1>
+                                    Исполнители
+                                </h1>
+                            </div>
+                            {% for performer in event.performer_id %}
+                                <div class="col performer-card" title="Больше об исполнителе">
+                                    <div class="card shadow-sm">
+                                        <div class="card-body">
+                                            <div class="row performer-info">
+                                                <div class="col-lg-4">
+
+                                                    <div class="performer-photo">
+                                                        <div class="photo" style="
+                                                            background-image: url('{{ performer.performer_photo_link }}');
+                                                            background-size: cover;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-8 performer-name">
+                                                    <a href="/performer-{{ performer.id }}">
+                                                        <h2>{{ performer.performer_name }}</h2>
+                                                    </a>
+                                                    <span>
+                                                        {{ performer.performer_type_id.performer_type_name }}
+                                                    </span>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <a type="button"
+                                                           class="btn btn-sm btn-outline-primary"
+                                                           href="/performer-{{ performer.id }}">
+                                                            Подробнее
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+
+                    <div class="map">
+                        <div class="address">
+                            <span>
+                                {{ event.place_id.place_name }},
+                                {{ event.place_id.address }},
+                                {{ event.place_id.city_id.city_name }}
+                            </span>
+                        </div>
+                        <iframe src="https://yandex.ru/map-widget/v1/?pt={{ event.place_id.lat }},{{ event.place_id.long }}&ll={{ event.place_id.lat }}%2C{{ event.place_id.long }}&text={{ event.place_id.place_name }}&z=14"
+                                width="100%" height="550" style="position:relative;">
+                        </iframe>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container">
+                <footer class="py-3 my-4">
+
+                    <ul class="nav justify-content-center pb-3 mb-3">
+                        <li class="nav-item">
+                            <a href="/" class="nav-link px-2 text-body-secondary">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/all-events?date-input=&age-category-input=0&event-type-input=0&event-city-input=0&genre-input=0" class="nav-link px-2 text-body-secondary">События</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/search" class="nav-link px-2 text-body-secondary">Поиск</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/about" class="nav-link px-2 text-body-secondary">О нас</a>
+                        </li>
+                    </ul>
+
+                    <p class="text-center text-body-secondary">© 2023 Three Freelancers, Inc</p>
+                </footer>
+            </div>
+        </main>
+    </body>
+</html>
