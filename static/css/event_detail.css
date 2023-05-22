@@ -1,0 +1,127 @@
+body {
+    background: #1E2024;
+}
+
+header span {
+    color: #AEB5BC;
+}
+
+.section-bottom div {
+    height: 70px;
+}
+
+.nav-link{
+    color: #7BA6F7;
+}
+
+.more-section p{
+    text-align: center;
+}
+
+.nav-link:hover {
+    color: #316CF4;
+}
+
+footer p {
+    color: #8C9097;
+}
+
+header {
+    margin-bottom: 0;
+}
+
+header span:hover {
+    color: #8C9097;
+}
+
+div h1 {
+    color: #AEB5BC;
+}
+
+.section-color {
+    position: relative;
+    background: #1E2024;
+    opacity: 0.8;
+    height: 400px;
+}
+
+div p {
+    color: #8C9097;
+}
+
+.card small {
+    color: #8C9097;
+}
+
+.card h5 {
+    color: #AEB5BC;
+}
+
+.card p {
+    color: #AEB5BC;
+}
+
+.card {
+    text-align: center;
+    background: #222529;
+}
+
+.album {
+    background: #2C3035;
+}
+
+.header_bg {
+    background: #2C3035;
+}
+
+.event-name {
+    color: aliceblue;
+    font-weight: bold;
+    font-size: 50px;
+    opacity: 1;
+    line-height: 70px;
+}
+
+.event-name-div {
+    text-align: left;
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 30px;
+}
+
+.all-info {
+    color: #AEB5BC;
+}
+
+.performer-name {
+    text-align: left;
+}
+
+.photo {
+    height: 70px;
+    width: 70px;
+    position: center;
+    border-radius: 35px;
+}
+
+.performer-name a {
+    text-decoration: none;
+    color: #AEB5BC;
+}
+
+.performer-name a:hover {
+    color: #8C9097;
+}
+
+.performer-card {
+    margin-bottom: 20px;
+}
+
+.address {
+    margin-bottom: 25px;
+}
+
+.btn {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}

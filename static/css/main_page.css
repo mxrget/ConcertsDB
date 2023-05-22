@@ -1,0 +1,82 @@
+body {
+    background: #1E2024;
+}
+
+header span {
+    color: #AEB5BC;
+}
+
+.section-bottom div {
+    height: 70px;
+}
+
+.nav-link{
+    color: #7BA6F7;
+}
+
+.more-section p{
+    text-align: center;
+}
+
+.more-section {
+    padding-top: 70px;
+}
+
+.image-concert {
+    height: 250px;
+}
+
+.nav-link:hover {
+    color: #316CF4;
+}
+
+footer p {
+    color: #8C9097;
+}
+
+header span:hover {
+    color: #8C9097; /*color: #8C9097;*/
+}
+
+section h1 {
+    color: #AEB5BC;
+}
+
+section p {
+    color: #8C9097;
+}
+
+.card {
+    background: #222529;
+}
+
+.card small {
+    color: #8C9097;
+}
+
+.card h5 {
+    color: #AEB5BC;
+}
+
+.age {
+    position: absolute;
+    color: #AEB5BC;
+    background: #222529;
+    padding: 6px 6px 1px;
+}
+
+.card p {
+    color: #AEB5BC;
+}
+
+.album {
+    background: #2C3035;
+}
+
+.header_bg {
+    background: #2C3035;
+}
+
+.btn {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,68 @@
+body {
+    background: #1E2024;
+    height: 100%;
+}
+
+header span {
+    color: #AEB5BC;
+}
+
+.section-bottom div {
+    height: 70px;
+}
+
+.nav-link{
+    color: #7BA6F7;
+}
+
+.more-section p{
+    text-align: center;
+}
+
+.nav-link:hover {
+    color: #316CF4;
+}
+
+footer p {
+    color: #8C9097;
+}
+
+header span:hover {
+    color: #8C9097;
+}
+
+section h1 {
+    color: #AEB5BC;
+}
+
+section p {
+    color: #8C9097;
+}
+
+.card small {
+    color: #8C9097;
+}
+
+.card h5 {
+    color: #AEB5BC;
+}
+
+.card p {
+    color: #AEB5BC;
+}
+
+.album {
+    background: #2C3035;
+}
+
+.header_bg {
+    background: #2C3035;
+}
+
+.footer-navbar {
+    bottom: 0;
+}
+
+.album {
+    color: #AEB5BC;
+}
