@@ -40,9 +40,9 @@ div h1 {
 
 .section-color {
     position: relative;
-    background: #1E2024;
-    opacity: 0.8;
+    background: rgba(30, 32, 36, 0.8);
     height: 600px;
+    backdrop-filter: blur(10px);
 }
 
 div p {
