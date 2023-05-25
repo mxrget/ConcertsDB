@@ -51,8 +51,6 @@ def parsing_by_city(city, code):
                 link_pt2 = '/concert?source=menu'
             link = base_link + domain + city + link_pt2
             r = requests.get(link)
-            print(link)
-            print(r.history)
             if len(r.history) > 0:
                 time.sleep(2)
                 continue
@@ -69,7 +67,6 @@ def parsing_by_city(city, code):
                 json_info = json.loads(event_as_str[54:right_index + 2])
                 event_link = base_link + domain + json_info.get('event-card-react').get('props').get('link')[1:]
                 time.sleep(3)
-                print(event_link)
                 event_req = requests.get(event_link).text
                 event_soup = BeautifulSoup(event_req, 'html.parser')
                 if 'captcha' in str(event_soup):
@@ -108,7 +105,6 @@ def parsing_by_city(city, code):
                     elif dt.count(':') != 1:
                         continue
                     else:
-                        print('здарова')
                         event_time = dt[-5:] + ':00'
                         date_non_format = dt[:-7]
                         if '202' in date_non_format:
@@ -175,8 +171,6 @@ def parsing_by_city(city, code):
                                 with open('artists.txt', 'a+') as artists_file:
                                     msg = '{"genre_id": ' + str(genres)
                                     msg += ', "performer_type_id": 2, "performer_name": "' + cur_artist + '", "performer_description": "' + artist_desc + '", "performer_photo_link": "' + cur_artist_photo + '"},' + '\n'
-                                    print(msg)
-                                    print('----')
                                     artists_file.write(msg)
                         if place_title not in all_places:
                             all_places.add(place_title)
